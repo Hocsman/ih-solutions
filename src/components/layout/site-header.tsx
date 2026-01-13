@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, Home, Package, Users, Mail } from "lucide-react";
@@ -13,7 +14,6 @@ const navigation = [
     { name: "Accueil", href: "/", icon: Home },
     { name: "Produits", href: "/products", icon: Package },
     { name: "À propos", href: "/about", icon: Users },
-    { name: "Contact", href: "/contact", icon: Mail },
 ];
 
 export function SiteHeader() {
@@ -23,15 +23,19 @@ export function SiteHeader() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
             <Container>
-                <div className="flex h-16 items-center justify-between">
+                <div className="flex h-24 items-center justify-between">
                     <Link
                         href="/"
-                        className="group flex items-center gap-2 font-bold text-xl tracking-tight text-foreground transition-all duration-300 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2 py-1 -ml-2"
+                        className="group flex items-center font-bold text-xl tracking-tight text-foreground transition-all duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
                     >
-                        <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                            IH
-                        </span>
-                        <span>Solutions</span>
+                        <Image
+                            src="/logo.png"
+                            alt="IH Solutions"
+                            width={300}
+                            height={80}
+                            className="h-20 w-auto"
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -67,8 +71,14 @@ export function SiteHeader() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-xl">
-                            <SheetTitle className="text-left text-lg font-bold mb-8">
-                                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">IH</span> Solutions
+                            <SheetTitle className="text-left mb-8">
+                                <Image
+                                    src="/logo.png"
+                                    alt="IH Solutions"
+                                    width={150}
+                                    height={42}
+                                    className="h-11 w-auto"
+                                />
                             </SheetTitle>
                             <nav className="flex flex-col gap-2" aria-label="Navigation mobile">
                                 {navigation.map((item) => {

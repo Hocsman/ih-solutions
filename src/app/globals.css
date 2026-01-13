@@ -254,3 +254,219 @@
         transform: none;
     }
 }
+
+/* ========================================
+   DATABAHN-INSPIRED ANIMATIONS & EFFECTS
+   ======================================== */
+
+/* Keyframe Animations */
+@keyframes orbit {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes orbit-reverse {
+    from {
+        transform: rotateZ(360deg);
+    }
+
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shine {
+    from {
+        background-position: 200% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px oklch(0.65 0.20 260 / 0.3),
+            0 0 40px oklch(0.65 0.20 260 / 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px oklch(0.65 0.20 260 / 0.5),
+            0 0 60px oklch(0.65 0.20 260 / 0.2);
+    }
+}
+
+/* Animation Utility Classes */
+.animate-orbit {
+    animation: orbit 20s linear infinite;
+}
+
+.animate-orbit-slow {
+    animation: orbit 30s linear infinite;
+}
+
+.animate-orbit-reverse {
+    animation: orbit-reverse 25s linear infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-shine {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            oklch(1 0 0 / 0.1) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shine 3s ease-in-out infinite;
+}
+
+/* Glow Effects - Violet Theme */
+.glow-violet {
+    box-shadow: 0 0 20px oklch(0.65 0.20 260 / 0.3),
+        0 0 40px oklch(0.65 0.20 260 / 0.1),
+        0 0 60px oklch(0.65 0.20 260 / 0.05);
+}
+
+.glow-violet-sm {
+    box-shadow: 0 0 10px oklch(0.65 0.20 260 / 0.3),
+        0 0 20px oklch(0.65 0.20 260 / 0.1);
+}
+
+.glow-violet-lg {
+    box-shadow: 0 0 30px oklch(0.65 0.20 260 / 0.4),
+        0 0 60px oklch(0.65 0.20 260 / 0.2),
+        0 0 90px oklch(0.65 0.20 260 / 0.1);
+}
+
+/* Border Glow Effect */
+.border-glow {
+    position: relative;
+}
+
+.border-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg,
+            oklch(0.65 0.20 260 / 0.5),
+            oklch(0.55 0.17 200 / 0.3),
+            oklch(0.65 0.20 260 / 0.5));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.border-glow:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced Card for Dark Mode */
+.dark .card-databahn {
+    background: linear-gradient(135deg,
+            oklch(0.16 0.02 260 / 0.9),
+            oklch(0.12 0.015 260 / 0.8));
+    border: 1px solid oklch(0.30 0.03 260 / 0.5);
+    backdrop-filter: blur(16px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .card-databahn:hover {
+    border-color: oklch(0.65 0.20 260 / 0.5);
+    box-shadow:
+        0 0 0 1px oklch(0.65 0.20 260 / 0.2),
+        0 20px 40px -15px oklch(0.65 0.20 260 / 0.2),
+        0 0 60px -20px oklch(0.65 0.20 260 / 0.3);
+    transform: translateY(-4px);
+}
+
+/* Enhanced Hero Background for Dark Mode */
+.dark .bg-hero-enhanced {
+    background:
+        radial-gradient(ellipse 100% 60% at 50% -10%, oklch(0.65 0.20 260 / 0.15), transparent 50%),
+        radial-gradient(ellipse 80% 50% at 80% 20%, oklch(0.55 0.17 200 / 0.1), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, oklch(0.70 0.18 280 / 0.08), transparent 50%),
+        linear-gradient(to bottom, oklch(0.10 0.02 260), oklch(0.14 0.025 260));
+}
+
+/* Enhanced Grid Pattern for Dark Mode */
+.dark .bg-grid-enhanced {
+    background-image:
+        linear-gradient(to right, oklch(0.25 0.02 260 / 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, oklch(0.25 0.02 260 / 0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+/* Dot Pattern Background */
+.bg-dots-pattern {
+    background-image: radial-gradient(oklch(0.35 0.02 260 / 0.5) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Gradient Text Effect */
+.text-gradient-violet {
+    background: linear-gradient(135deg,
+            oklch(0.75 0.20 260),
+            oklch(0.65 0.17 200),
+            oklch(0.70 0.18 280));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Respect reduced motion for all new animations */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-orbit,
+    .animate-orbit-slow,
+    .animate-orbit-reverse,
+    .animate-pulse-glow,
+    .animate-float,
+    .animate-shine {
+        animation: none;
+    }
+
+    .dark .card-databahn:hover {
+        transform: none;
+    }
+}

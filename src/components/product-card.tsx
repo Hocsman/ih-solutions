@@ -41,16 +41,17 @@ export function ProductCard({ product, className, linkToLanding = true }: Produc
 
     return (
         <Card className={cn(
-            "group relative flex flex-col h-full overflow-hidden",
-            "bg-card/80 backdrop-blur-sm border-border/50",
-            "transition-all duration-300 ease-out",
-            "hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 hover:border-primary/20",
+            "group relative flex flex-col h-full overflow-hidden rounded-2xl",
+            "card-databahn",
+            "transition-all duration-400 ease-out",
+            "hover:-translate-y-2",
             "motion-reduce:hover:translate-y-0",
             className
         )}>
-            {/* Glow effect on hover */}
+            {/* Enhanced glow effect on hover */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+                <div className="absolute -inset-1 bg-primary/5 blur-xl" />
             </div>
 
             <CardHeader className="pb-3 relative">

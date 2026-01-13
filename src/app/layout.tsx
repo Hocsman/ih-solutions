@@ -49,9 +49,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
     shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-icon.png",
   },
   manifest: "/manifest.json",
 };
@@ -71,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className="dark">
       <head>
         <PlausibleAnalytics />
       </head>
