@@ -38,7 +38,8 @@ export function SiteHeader() {
                         />
                     </Link>
 
-                    {/* Desktop Navigation */}
+                    {/* Navigation temporarily hidden for under construction page */}
+                    {/* 
                     <nav className="hidden md:flex items-center gap-1" aria-label="Navigation principale">
                         {navigation.map((item) => (
                             <Link
@@ -62,8 +63,10 @@ export function SiteHeader() {
                             <Link href="/contact">Nous contacter</Link>
                         </Button>
                     </nav>
+                    */}
 
-                    {/* Mobile Navigation */}
+                    {/* Mobile Navigation - temporarily hidden */}
+                    {/*
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild className="md:hidden">
                             <Button variant="ghost" size="icon" aria-label="Ouvrir le menu" className="relative">
@@ -111,6 +114,7 @@ export function SiteHeader() {
                             </nav>
                         </SheetContent>
                     </Sheet>
+                    */}
                 </div>
             </Container>
         </header>
