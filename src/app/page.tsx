@@ -51,7 +51,7 @@ export default function HomePage() {
 
                 {/* Description */}
                 <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-                    Nous travaillons dur pour vous offrir une nouvelle expérience.
+                    Nous travaillons pour vous offrir une nouvelle expérience.
                     Revenez bientôt pour découvrir nos solutions SaaS innovantes.
                 </p>
 
